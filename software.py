@@ -6,21 +6,19 @@ data = [2.08, 2.22, 2.71, 2.70, 2.36, 2.24, 2.31, 2.62, 2.68, 2.89, 2.75, 2.79, 
 
 # 時間のデータ（120ms間隔の時間軸）
 time = [i * 0.12 for i in range(len(data))]  # 120ms = 0.12秒
-
-# 0以下のデータを削除
 filtered_data = [d for d in data if d > 0]
 filtered_time = [t for d, t in zip(data, time) if d > 0]
 
 # グラフの描画
 plt.figure(figsize=(12, 6))
-plt.plot(time, data, linestyle='-', color='b', label='data')  # marker='' または省略
+plt.plot(time, data, linestyle='-', color='b', label='data')
 
 # グラフのタイトルとラベル
 plt.xlabel('Time (s)')
 
 # 軸の範囲設定
-plt.xlim(min(filtered_time), max(filtered_time))  # x軸の範囲を設定
+plt.xlim(min(filtered_time), max(filtered_time))
 plt.ylim(min(data) -5, max(data) +5)
-plt.grid(True, axis='y')  # x軸のみグリッドを表示
+plt.grid(True, axis='y')
 plt.legend()
 plt.show()
